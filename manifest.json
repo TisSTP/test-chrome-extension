@@ -3,7 +3,7 @@
 
     "name": "Getting started example",
     "description": "This extension shows a Google Image search result for the current page",
-    "version": "1.0",
+    "version": "1.1",
 
     "browser_action": {
 
@@ -13,10 +13,15 @@
     },
 
     "permissions": [
-        "https://ajax.googleapis.com/"
+        "notifications"
     ],
 
     "background": {
-        "script": []
-    }
+        "scripts": ["background-test1.js"]
+    },
+
+    // crbug.com/134315
+    "web_accessible_resources": [
+        "images/icons8-google_docs.png"
+    ]
 }
