@@ -1,27 +1,26 @@
 {
     "manifest_version": 2,
 
-    "name": "Getting started example",
-    "description": "This extension shows a Google Image search result for the current page",
+    "name": "Extension TEST.",
+    "description": "my test extension google chrome",
     "version": "1.1",
-
+    "background": {
+        "scripts": [
+            // "bg-notification.js",
+            "bg-onclick.js"
+        ]
+    },
     "browser_action": {
 
         "default_icon": "images/icons8-google_docs.png",
-        "default_title": "Extension", // title icon extension
-        "default_popup": "popup.html" // .html
-    },
+        "default_title": "Extension" // title icon extension
+            //"default_popup": "popup.html", // .html
 
+    },
     "permissions": [
-        "notifications"
-    ],
-
-    "background": {
-        "scripts": ["background-test1.js"]
-    },
-
-    // crbug.com/134315
-    "web_accessible_resources": [
-        "images/icons8-google_docs.png"
+        "notifications",
+        "tabs"
+        // "http://*/*",
+        // "https://*/*"
     ]
 }
