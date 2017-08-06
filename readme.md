@@ -1,12 +1,29 @@
-# chrome extension
+# chrome extension 
 
 ### manifest.json
+- notification
 ```json
 {
-    "manifest_version": 2,
-    "name": "Extension TEST.",
-    "description": "my test extension google chrome",
-    "version": "1.1",
+    "background": {
+        "scripts": [
+            "bg-notification.js"
+        ]
+    },
+    "browser_action": {
+        "default_icon": "images/icons8-google_docs.png",
+        "default_title": "Extension",     
+        "default_popup": "popup.html"    
+    },
+    "permissions": [
+        "notifications"
+    ]
+}
+```
+
+- browser action : onclicked & show notification
+> ถ้าใช้ event ใน background.javascrtips ให้ปิดการใช้งาน default_popup
+```json
+{
     "background": {
         "scripts": [
             "bg-notification.js", 
@@ -15,26 +32,25 @@
     },
     "browser_action": {
         "default_icon": {
-            "16": "images/icon-16.png",
-            "48": "images/icon-48.png",
-            "128": "images/icon-128.png"
+            "32": "images/icons8-contacts-32px.png",
+            "48": "images/icons8-contacts-48px.png"
         },
-        "default_title": "Extension",     // optional; shown in tooltip
-        "default_popup": "popup.html"     // .html & include css & js
+        "default_title": "Extension"
     },
     "permissions": [
         "notifications",
-        "tabs",
-        "http://*/*",
-        "https://*/*"
+        "tabs"
     ]
 }
 ```
 
+<br>
 
+
+
+<hr>
+
+- default_title : optional; shown in tooltip
+- default_popup : page .html & include css & js in file.
 - permissions : อนุญาติการเรียกใช้งาน function เสริมต่าง
-
-
-
-> ถ้าใช้ event ใน background.javascrtips ให้ปิดการใช้งาน default_popup
 
