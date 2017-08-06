@@ -6,20 +6,32 @@
     "version": "1.1",
     "background": {
         "scripts": [
-            // "bg-notification.js",
-            "bg-onclick.js"
-        ]
+            // "bg-notification.js"
+            // "bg-onclick.js"
+            "bg-page-action.js"
+        ],
+        "persistent": false
     },
-    "browser_action": {
+    // "browser_action": {
+    //     "default_icon": "images/icons8-google_docs.png",
+    //     "default_title": "Extension" // title icon extension
+    //         //"default_popup": "popup.html", // .html
+    // },
 
-        "default_icon": "images/icons8-google_docs.png",
-        "default_title": "Extension" // title icon extension
-            //"default_popup": "popup.html", // .html
-
+    "icons": {
+        "24": "images/icons8-google_docs.png"
+    },
+    "page_action": {
+        "default_icon": { // optional
+            "24": "images/icons8-ok.png" // optional
+        },
+        "default_title": "Click On read file." // optional; shown in tooltip
+            // "default_popup": "popup.html" // optional
     },
     "permissions": [
         "notifications",
-        "tabs"
+        "tabs",
+        "declarativeContent"
         // "http://*/*",
         // "https://*/*"
     ]

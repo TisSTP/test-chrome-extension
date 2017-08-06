@@ -1,6 +1,6 @@
 # chrome extension 
 
-### manifest.json
+### manifest.json [manifest read...](https://developer.chrome.com/extensions/manifest)
 - notification
 ```json
 {
@@ -21,12 +21,10 @@
 ```
 
 - browser action : onclicked & show notification
-> ถ้าใช้ event ใน background.javascrtips ให้ปิดการใช้งาน default_popup
 ```json
 {
     "background": {
         "scripts": [
-            "bg-notification.js", 
             "bg-onclick.js"
         ]
     },
@@ -43,14 +41,39 @@
     ]
 }
 ```
+> ถ้าใช้ event ใน background.javascrtips ให้ปิดการใช้งาน default_popup
 
 <br>
 
-
+- page action
+```json
+{
+    "background": {
+        "scripts": [
+            "bg-page-action.js"
+        ],
+        "persistent": false
+    },
+    "page_action": {
+        "default_icon": { 
+            "24": "images/icons8-ok.png" 
+        },
+        "default_title": "Click On read file." 
+    },
+    "icons": {
+        "24": "images/icons8-ok.png"
+    },
+    "permissions": [
+        "declarativeContent"
+    ]
+}
+```
+> Notice that without the "persistent" key, you have a regular background page. Persistence is what differentiates an event page from a background page. [readmore](https://developer.chrome.com/extensions/event_pages)
+> 
 
 <hr>
 
 - default_title : optional; shown in tooltip
 - default_popup : page .html & include css & js in file.
-- permissions : อนุญาติการเรียกใช้งาน function เสริมต่าง
+- [declare permissions](https://developer.chrome.com/extensions/declare_permissions) : อนุญาติการเรียกใช้งาน function เสริมต่าง 
 
